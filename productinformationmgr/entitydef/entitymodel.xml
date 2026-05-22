@@ -1,0 +1,67 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
+
+    <entity entity-name="ProductTest" package-name="org.apache.ofbiz.producttest.producttest" title="Product Test Entity">
+        <field name="productId" type="id"/>
+        <field name="productName" type="name"/>
+        <field name="productTypeEnumIdTest" type="id"/>
+        <field name="isVirtual" type="indicator"/>
+        <field name="isVariant" type="indicator"/>
+        <prim-key field="productId"/>
+        <relation type="one" fk-name="ProductTestTypeEnum" rel-entity-name="ProductTypeEnumTest">
+            <key-map field-name="productTypeEnumIdTest"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="ProductTypeEnumTest" package-name="org.apache.ofbiz.producttestenumtype.producttestenumtype">
+        <field name="productTypeEnumIdTest" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="productTypeEnumIdTest"/>
+    </entity>
+
+    <entity entity-name="ProductContentTest" package-name="org.apache.ofbiz.productcontenttest.productcontenttest">
+        <field name="productContentId" type="id"/>
+        <field name="productId" type="id"/>
+        <field name="productContentTypeEnumIdTest" type="id"/>
+        <field name="contentLocation" type="url"/>
+        <prim-key field="productContentId"/>
+        <relation type="one" fk-name="ProductContentTypeEnumTest" rel-entity-name="ProductContentEnumTest">
+            <key-map field-name="productContentTypeEnumIdTest"/>
+        </relation>
+        <relation type="one" fk-name="ProdProductContent" rel-entity-name="ProductTest">
+            <key-map field-name="productId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="ProductContentEnumTest" package-name="org.apache.ofbiz.productcontenttest.productcontenttest">
+        <field name="productContentTypeEnumIdTest" type="id"/>
+        <field name="description" type="description"/>'
+        <prim-key field="productContentTypeEnumIdTest"/>
+    </entity>
+
+
+    <entity entity-name="ProductPriceTest" package-name="org.apache.ofbiz.productpricetest.productpricetest">
+        <field name="productPrice" type="id"/>
+        <field name="productId" type="id"/>
+        <field name="productPriceTypeEnumIdTest" type="id"/>
+        <field name="price" type="numeric"/>
+        <prim-key field="productPrice"/>
+
+        <relation type="one" fk-name="ProductPriceEnumTest" rel-entity-name="ProductPriceTypeEnumTest">
+            <key-map field-name="productPriceTypeEnumIdTest"/>
+        </relation>
+
+        <relation type="one" fk-name="ProductPriceTest" rel-entity-name="ProductTest">
+            <key-map field-name="productId"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="ProductPriceTypeEnumTest" package-name="org.apache.ofbiz.productpricetypeenumtest.productpricetypeenumtest">
+        <field name="productPriceTypeEnumIdTest"/>
+        <field name="description" type="description"/>
+        <prim-key field="productPriceTypeEnumIdTest"/>
+    </entity>
+
+
+
+</entitymodel>
