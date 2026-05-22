@@ -7,9 +7,9 @@
         <field name="productTypeEnumIdTest" type="id"/>
         <field name="isVirtual" type="indicator"/>
         <field name="isVariant" type="indicator"/>
-        <prim-key field="productId"/>
+        <prim-key field-name="productId"/>
         <relation type="one" fk-name="ProductTestTypeEnum" rel-entity-name="ProductTypeEnumTest">
-            <key-map field-name="productTypeEnumIdTest"/>
+            <key-map field="productTypeEnumIdTest"/>
         </relation>
     </entity>
 
@@ -62,6 +62,29 @@
         <prim-key field="productPriceTypeEnumIdTest"/>
     </entity>
 
+
+    <entity entity-name="ProductDimensionTest" package-name="org.apache.ofbiz.productdimension.productdimension">
+        <field name="productId" type="id"/>
+        <field name="dimensionTypeEnumIdTest" type="id"/>
+        <field name="dimensionValue" type="numeric"/>
+        <field name="valueUomId" type="id"/>
+        <prim-key field="productId"/>
+        <prim-key field="dimensionTypeEnumIdTest"/>
+
+        <relation type="one" fk-name="ProductDimensionTest" rel-entity-name="ProductTest">
+            <key-map field-name="productId"/>
+        </relation>
+
+        <relation type="one" fk-name="ProductDimensionTypeEnum" rel-entity-name="DimensionTypeEnumIdTest">
+            <key-map field-name="dimensionTypeEnumIdTest"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="DimensionTypeEnumIdTest" package-name="org.apache.ofbiz.dimensiontypeenumidtest.dimensiontypeenumidtest">
+        <field name="dimensionTypeEnumIdTest" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field-name="dimensionTypeEnumIdTest"/>
+    </entity>
 
 
 </entitymodel>
