@@ -1,0 +1,45 @@
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/entitymodel.xsd">
+
+        <entity entity-name="PartyTest" package-name="org.apache.partytest.partytest" title="Party Test Entity">
+            <field name="partyIdTest" type="id"/>
+            <field name="partyTypeEnumIdTest" type="id"/>
+            <prim-key field="partyIdTest"/>
+            <relation type="one" fk-name="PartyTestTypeEnum" rel-entity-name="PartyTypeEnumTest">
+                <key-map field="partyTypeEnumIdTest"/>
+            </relation>
+        </entity>
+
+
+        <entity entity-name="PartyTypeEnumTest" package-name="org.apache.partytypeenumidtest.partytypeenumidtest">
+             <field name="partyTypeEnumIdTest" type="id"/>
+             <field name="description" type="description"/>
+             <prim-key field="partyTypeEnumIdTest"/>
+        </entity>
+
+        <entity entity-name="PersonTest" package-name="org.apache.persontest.persontest">
+            <field name="partyIdTest" type="id"/>
+            <field name="firstName" type="short-varchar"/>
+            <field name="dateOfBirth" type="date"/>
+            <prim-key field="partyIdTest"/>
+            <relation type="one" rel-entity-name="PartyTest">
+                <key-map field-name="partyIdTest"/>
+            </relation>
+        </entity>
+
+        <entity entity-name="PartyRoleTest" package-name="org.apache.partyrole.partyrole">
+            <field name="partyRoleEnumTypeTest" type="id"/>
+            <field name="partyIdTest" type="id"/>
+            <prim-key field="partyRoleEnumTypeTest"/>
+            <prim-key field="partyIdTest"/>
+        </entity>
+
+        <entity entity-name="PartyGroupTest" package-name="org.apache.partygrouptest.partygrouptest">
+            <field name="partyIdTest" type="id"/>
+            <field name="groupName" type="name"/>
+            <prim-key field="partyIdTest"/>
+            <relation type="one" rel-entity-name="PartyTest">
+                <key-map field="partyIdTest"/>
+            </relation>
+        </entity>
+</entitymodel>
