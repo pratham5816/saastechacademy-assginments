@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-engine-xml>
+    <ProductAssocTypeEnumIdTest productAssocTypeEnumIdTest="PRODUCT_VARIANT"
+                              description="Product Variant"/>
+    <ProductAssocTypeEnumIdTest productAssocTypeEnumIdTest="ALSO_BROUGHT"
+                              description="Also Brought"/>
+    <ProductAssocTypeEnumIdTest productAssocTypeEnumIdTest="PRODUCT_UPGRADE"
+                              description="Product Upgrade"/>
+    <ProductAssocTypeEnumIdTest productAssocTypeEnumIdTest="PRODUCT_ACCESSORY"
+                              description="Product Accessory"/>
+    <ProductAssocTypeEnumIdTest productAssocTypeEnumIdTest="PRODUCT_COMPONENT"
+                              description="Product Component"/>
+
+</entity-engine-xml>

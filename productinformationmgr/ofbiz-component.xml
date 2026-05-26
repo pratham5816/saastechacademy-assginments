@@ -6,7 +6,12 @@
                  xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/ofbiz-component.xsd">
     <resource-loader name="main" type="component"/>
     <entity-resource type="model" reader-name="main" loader="main" location="entitydef/entitymodel.xml"/>
-    <entity-resource type="data" reader-name="seed" loader="main" location="data/productTypeEnumTestData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/ProductTypeEnumTestData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/DimensionTypeEnumTestData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/ProductAssocTypeEnumIdTest.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/ProductContentEnumTestData.xml"/>
+    <entity-resource type="data" reader-name="seed" loader="main" location="data/ProductPriceTypeEnumTestData.xml"/>
+    <entity-resource type="data" reader-name="demo" loader="main" location="data/ProductDemoData.xml"/>
 
 </ofbiz-component>
 

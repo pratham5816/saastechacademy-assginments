@@ -7,7 +7,7 @@
         <field name="productTypeEnumIdTest" type="id"/>
         <field name="isVirtual" type="indicator"/>
         <field name="isVariant" type="indicator"/>
-        <prim-key field-name="productId"/>
+        <prim-key field="productId"/>
         <relation type="one" fk-name="ProductTestTypeEnum" rel-entity-name="ProductTypeEnumTest">
             <key-map field="productTypeEnumIdTest"/>
         </relation>
@@ -57,7 +57,7 @@
     </entity>
 
     <entity entity-name="ProductPriceTypeEnumTest" package-name="org.apache.ofbiz.productpricetypeenumtest.productpricetypeenumtest">
-        <field name="productPriceTypeEnumIdTest"/>
+        <field name="productPriceTypeEnumIdTest" type="id"/>
         <field name="description" type="description"/>
         <prim-key field="productPriceTypeEnumIdTest"/>
     </entity>
@@ -83,8 +83,33 @@
     <entity entity-name="DimensionTypeEnumIdTest" package-name="org.apache.ofbiz.dimensiontypeenumidtest.dimensiontypeenumidtest">
         <field name="dimensionTypeEnumIdTest" type="id"/>
         <field name="description" type="description"/>
-        <prim-key field-name="dimensionTypeEnumIdTest"/>
+        <prim-key field ="dimensionTypeEnumIdTest"/>
     </entity>
 
+    <entity entity-name="ProductAssociationTest" package-name="org.apache.ofbiz.productassociationtest.productassociation">
+        <field name="productId" type="id"/>
+        <field name="toProductId" type="id"/>
+        <field name="ProductAssocTypeEnumIdTest" type="id"/>
+        <field name="formDate" type="date-time"/>
+        <prim-key field="productId"/>
+        <prim-key field="toProductId"/>
+        <prim-key field="ProductAssocTypeEnumIdTest"/>
+
+        <relation type="one" fk-name="ProductFromAssoc" rel-entity-name="ProductTest">
+            <key-map field-name="productId"/>
+        </relation>
+        <relation type="one" fk-name="ProductToAssoc" rel-entity-name="ProductTest">
+            <key-map field-name="ProductId"/>
+        </relation>
+        <relation type="one" fk-name="ProductAssocTypeEnum" rel-entity-name="ProductAssocTypeEnumIdTest">
+            <key-map field-name="ProductAssocTypeEnumIdTest"/>
+        </relation>
+    </entity>
+
+    <entity entity-name="ProductAssocTypeEnumIdTest" package-name="org.apache.ofbiz.productassoctypeenumidtest.productassoctypeenumidtest">
+        <field name="productAssocTypeEnumIdTest" type="id"/>
+        <field name="description" type="description"/>
+        <prim-key field="productAssocTypeEnumIdTest"/>
+    </entity>
 
 </entitymodel>
