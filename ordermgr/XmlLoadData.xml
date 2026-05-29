@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+
+
+    <ProdCatalog catalogName="Shoes Catalog" createdStamp="2026-05-14 10:30:39.602"
+                 createdTxStamp="2026-05-14 10:30:39.124" lastUpdatedStamp="2026-05-27 10:04:20.95"
+                 lastUpdatedTxStamp="2026-05-27 10:04:20.511" prodCatalogId="SC100" purchaseAllowPermReqd="N"
+                 useQuickAdd="Y" viewAllowPermReqd="N"/>
+
+    <ProductCategory createdStamp="2026-05-27 09:50:50.72" createdTxStamp="2026-05-27 09:50:50.719"
+                     lastUpdatedStamp="2026-05-27 09:50:50.72" lastUpdatedTxStamp="2026-05-27 09:50:50.719"
+                     primaryParentCategoryId="BROWSE_ROOT" productCategoryId="Men"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 09:58:56.576" createdTxStamp="2026-05-27 09:58:56.575"
+                     lastUpdatedStamp="2026-05-27 09:58:56.576" lastUpdatedTxStamp="2026-05-27 09:58:56.575"
+                     primaryParentCategoryId="Men" productCategoryId="MParty" productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 09:56:17.827" createdTxStamp="2026-05-27 09:56:17.827"
+                     lastUpdatedStamp="2026-05-27 09:56:17.827" lastUpdatedTxStamp="2026-05-27 09:56:17.827"
+                     primaryParentCategoryId="Men" productCategoryId="MSports"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 09:51:22.959" createdTxStamp="2026-05-27 09:51:22.958"
+                     lastUpdatedStamp="2026-05-27 09:51:39.863" lastUpdatedTxStamp="2026-05-27 09:51:39.863"
+                     primaryParentCategoryId="BROWSE_ROOT" productCategoryId="Women"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 10:02:09.189" createdTxStamp="2026-05-27 10:02:09.189"
+                     lastUpdatedStamp="2026-05-27 10:02:09.189" lastUpdatedTxStamp="2026-05-27 10:02:09.189"
+                     primaryParentCategoryId="Women" productCategoryId="WParty"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 10:01:44.814" createdTxStamp="2026-05-27 10:01:44.813"
+                     lastUpdatedStamp="2026-05-27 10:01:44.814" lastUpdatedTxStamp="2026-05-27 10:01:44.813"
+                     primaryParentCategoryId="Women" productCategoryId="WFormal"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProductCategory createdStamp="2026-05-27 10:00:59.608" createdTxStamp="2026-05-27 10:00:59.607"
+                     lastUpdatedStamp="2026-05-27 10:00:59.608" lastUpdatedTxStamp="2026-05-27 10:00:59.607"
+                     primaryParentCategoryId="Women" productCategoryId="WSports"
+                     productCategoryTypeId="CATALOG_CATEGORY"/>
+
+    <ProdCatalogCategory createdStamp="2026-05-27 10:43:14.375" createdTxStamp="2026-05-27 10:43:14.374"
+                         fromDate="2026-05-05 00:00:00.0" lastUpdatedStamp="2026-05-27 10:43:14.375"
+                         lastUpdatedTxStamp="2026-05-27 10:43:14.374" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT"
+                         prodCatalogId="SC100" productCategoryId="BROWSE_ROOT"/>
+
+    <ProductFeatureCategory createdStamp="2026-05-27 11:25:48.991" createdTxStamp="2026-05-27 11:25:48.99"
+                            description="COLOR_CAT for module 5" lastUpdatedStamp="2026-05-27 11:25:48.991"
+                            lastUpdatedTxStamp="2026-05-27 11:25:48.99" productFeatureCategoryId="COLOR_CATEGORY"/>
+
+    <ProductFeatureCategory createdStamp="2026-05-27 11:25:28.571" createdTxStamp="2026-05-27 11:25:28.569"
+                            description="SIZE_CAT for module 5" lastUpdatedStamp="2026-05-27 11:25:28.571"
+                            lastUpdatedTxStamp="2026-05-27 11:25:28.569" productFeatureCategoryId="SIZE_CATEGORY"/>
+
+    <ProductFeatureType createdStamp="2026-05-27 11:20:02.593" createdTxStamp="2026-05-27 11:20:02.592"
+                        description="SIZE  For Module 5" lastUpdatedStamp="2026-05-27 11:20:02.593"
+                        lastUpdatedTxStamp="2026-05-27 11:20:02.592" productFeatureTypeId="SIZE"/>
+
+    <ProductFeatureType createdStamp="2026-05-27 11:20:59.102" createdTxStamp="2026-05-27 11:20:59.101"
+                        description="Color for module 5" lastUpdatedStamp="2026-05-27 11:20:59.102"
+                        lastUpdatedTxStamp="2026-05-27 11:20:59.101" productFeatureTypeId="COLOR"/>
+
+
+    <ProductFeature createdStamp="2026-05-27 11:27:37.819" createdTxStamp="2026-05-27 11:27:37.818" description="7"
+                    lastUpdatedStamp="2026-05-27 11:27:37.819" lastUpdatedTxStamp="2026-05-27 11:27:37.818"
+                    productFeatureCategoryId="SIZE_CATEGORY" productFeatureId="PF100" productFeatureTypeId="SIZE"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:28:39.503" createdTxStamp="2026-05-27 11:28:39.503" description="8"
+                    lastUpdatedStamp="2026-05-27 11:28:39.503" lastUpdatedTxStamp="2026-05-27 11:28:39.503"
+                    productFeatureCategoryId="SIZE_CATEGORY" productFeatureId="PF101" productFeatureTypeId="SIZE"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:28:39.503" createdTxStamp="2026-05-27 11:28:39.503" description="9"
+                    lastUpdatedStamp="2026-05-27 11:28:39.503" lastUpdatedTxStamp="2026-05-27 11:28:39.503"
+                    productFeatureCategoryId="SIZE_CATEGORY" productFeatureId="PF102" productFeatureTypeId="SIZE"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:28:39.503" createdTxStamp="2026-05-27 11:28:39.503" description="10"
+                    lastUpdatedStamp="2026-05-27 11:28:39.503" lastUpdatedTxStamp="2026-05-27 11:28:39.503"
+                    productFeatureCategoryId="SIZE_CATEGORY" productFeatureId="PF103" productFeatureTypeId="SIZE"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:34:46.815" createdTxStamp="2026-05-27 11:34:46.813" description="11"
+                    lastUpdatedStamp="2026-05-27 11:34:46.815" lastUpdatedTxStamp="2026-05-27 11:34:46.813"
+                    productFeatureCategoryId="SIZE_CATEGORY" productFeatureId="PF104" productFeatureTypeId="SIZE"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:35:36.468" createdTxStamp="2026-05-27 11:35:36.468"
+                    description="RED"
+                    lastUpdatedStamp="2026-05-27 11:35:51.339" lastUpdatedTxStamp="2026-05-27 11:35:51.339"
+                    productFeatureCategoryId="COLOR_CATEGORY" productFeatureId="PF105"
+                    productFeatureTypeId="COLOR"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:36:16.975" createdTxStamp="2026-05-27 11:36:16.975"
+                    description="WHITE"
+                    lastUpdatedStamp="2026-05-27 11:36:16.975" lastUpdatedTxStamp="2026-05-27 11:36:16.975"
+                    productFeatureCategoryId="COLOR_CATEGORY" productFeatureId="PF106"
+                    productFeatureTypeId="COLOR"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:37:22.495" createdTxStamp="2026-05-27 11:37:22.494"
+                    description="BLACK" lastUpdatedStamp="2026-05-27 11:37:22.495"
+                    lastUpdatedTxStamp="2026-05-27 11:37:22.494" productFeatureCategoryId="COLOR_CATEGORY"
+                    productFeatureId="PF107" productFeatureTypeId="COLOR"/>
+
+    <ProductFeature createdStamp="2026-05-27 11:38:09.761" createdTxStamp="2026-05-27 11:38:09.76"
+                    description="BROWN"
+                    lastUpdatedStamp="2026-05-27 11:38:09.761" lastUpdatedTxStamp="2026-05-27 11:38:09.76"
+                    productFeatureCategoryId="COLOR_CATEGORY" productFeatureId="PF108"
+                    productFeatureTypeId="COLOR"/>
+
+
+    <!--    virtual products under men - MSports , MFormal , MParty  -->
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MS-1"
+             productName="MS1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MS-2"
+             productName="MS1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MF-1"
+             productName="MF1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MF-2"
+             productName="MF2" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MP-1"
+             productName="MP1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="MP-2"
+             productName="MP2" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MSports"
+                           productId="MS-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MSports"
+                           productId="MS-2"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MFormal"
+                           productId="MF-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MFormal"
+                           productId="MF-2"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MParty"
+                           productId="MP-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="MParty"
+                           productId="MP-2"/>
+
+
+    <!--    Women     -->
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WS-1"
+             productName="WS1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WS-2"
+             productName="WS1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WF-1"
+             productName="WF1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WF-2"
+             productName="WF2" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WP-1"
+             productName="WP1" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <Product createdStamp="2026-05-27 12:10:15.458" createdTxStamp="2026-05-27 12:10:15.457"
+             introductionDate="2026-05-12 00:00:00.0" isVariant="N" isVirtual="Y"
+             lastUpdatedStamp="2026-05-27 12:10:38.691" lastUpdatedTxStamp="2026-05-27 12:10:38.69" productId="WP-2"
+             productName="WP2" productTypeId="FINISHED_GOOD" releaseDate="2026-05-12 00:00:00.0"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WSports"
+                           productId="WS-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WSports"
+                           productId="WS-2"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WFormal"
+                           productId="WF-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WFormal"
+                           productId="WF-2"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WParty"
+                           productId="WP-1"/>
+
+    <ProductCategoryMember createdStamp="2026-05-27 12:24:13.655" createdTxStamp="2026-05-27 12:24:13.654"
+                           fromDate="2026-05-27 00:00:00.0" lastUpdatedStamp="2026-05-27 12:24:13.655"
+                           lastUpdatedTxStamp="2026-05-27 12:24:13.654" productCategoryId="WParty"
+                           productId="WP-2"/>
+
+
+    <!--    activity 5 -->
+    <Product amountUomTypeId="CURRENCY_MEASURE" billOfMaterialLevel="0" brandName="Peter England"
+             createdByUserLogin="admin" createdDate="2026-05-28 19:23:18.925" createdStamp="2026-05-28 19:23:18.926"
+             createdTxStamp="2026-05-28 19:23:18.028" inShippingBox="N" internalName="Sports T-Shirt"
+             inventoryItemTypeId="NON_SERIAL_INV_ITEM" isVariant="N" isVirtual="N" lastModifiedByUserLogin="admin"
+             lastModifiedDate="2026-05-28 19:23:18.925" lastUpdatedStamp="2026-05-28 19:23:18.926"
+             lastUpdatedTxStamp="2026-05-28 19:23:18.028" lotIdFilledIn="Allowed" productId="MS001"
+             productName="Sports T-Shirt Men White/8" productTypeId="FINISHED_GOOD" requireAmount="Y"/>
+
+    <Product amountUomTypeId="CURRENCY_MEASURE" billOfMaterialLevel="0" brandName="Peter England"
+             createdByUserLogin="admin" createdDate="2026-05-28 19:23:18.925" createdStamp="2026-05-28 19:23:18.926"
+             createdTxStamp="2026-05-28 19:23:18.028" inShippingBox="N" internalName="Sports T-Shirt"
+             inventoryItemTypeId="NON_SERIAL_INV_ITEM" isVariant="N" isVirtual="N" lastModifiedByUserLogin="admin"
+             lastModifiedDate="2026-05-28 19:23:18.925" lastUpdatedStamp="2026-05-28 19:23:18.926"
+             lastUpdatedTxStamp="2026-05-28 19:23:18.028" lotIdFilledIn="Allowed" productId="MS002"
+             productName="Sports T-Shirt Men Black/9" productTypeId="FINISHED_GOOD" requireAmount="Y"/>
+    <ProductPrice createdStamp="2026-05-29 11:04:20.144" createdTxStamp="2026-05-29 11:04:20.143" currencyUomId="USD"
+                  fromDate="2026-05-29 00:00:00.0" lastUpdatedStamp="2026-05-29 11:04:33.36"
+                  lastUpdatedTxStamp="2026-05-29 11:04:33.36" price="10.000" productId="MS001"
+                  productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE " productStoreGroupId="_NA_"/>
+    <ProductPrice createdStamp="2026-05-29 11:04:20.144" createdTxStamp="2026-05-29 11:04:20.143" currencyUomId="USD"
+                  fromDate="2026-05-29 00:00:00.0" lastUpdatedStamp="2026-05-29 11:04:33.36"
+                  lastUpdatedTxStamp="2026-05-29 11:04:33.36" price="13.000" productId="MS002"
+                  productPricePurposeId="PURCHASE" productPriceTypeId="DEFAULT_PRICE " productStoreGroupId="_NA_"/>
+
+
+    <ProductFeatureAppl createdStamp="2026-05-11 15:47:12.479" createdTxStamp="2026-05-11 15:47:06.543"
+                        fromDate="2003-11-20 13:50:26.411" lastUpdatedStamp="2026-05-11 15:47:12.479"
+                        lastUpdatedTxStamp="2026-05-11 15:47:06.543" productFeatureApplTypeId="STANDARD_FEATURE"
+                        productFeatureId="PF101" productId="MS001"/>
+
+    <ProductFeatureAppl createdStamp="2026-05-11 15:47:12.479" createdTxStamp="2026-05-11 15:47:06.543"
+                        fromDate="2003-11-20 13:50:26.411" lastUpdatedStamp="2026-05-11 15:47:12.479"
+                        lastUpdatedTxStamp="2026-05-11 15:47:06.543" productFeatureApplTypeId="STANDARD_FEATURE"
+                        productFeatureId="PF106" productId="MS001"/>
+
+    <ProductFeatureAppl createdStamp="2026-05-11 15:47:12.479" createdTxStamp="2026-05-11 15:47:06.543"
+                        fromDate="2003-11-20 13:50:26.411" lastUpdatedStamp="2026-05-11 15:47:12.479"
+                        lastUpdatedTxStamp="2026-05-11 15:47:06.543" productFeatureApplTypeId="STANDARD_FEATURE"
+                        productFeatureId="PF102" productId="MS002"/>
+
+    <ProductFeatureAppl createdStamp="2026-05-11 15:47:12.479" createdTxStamp="2026-05-11 15:47:06.543"
+                        fromDate="2003-11-20 13:50:26.411" lastUpdatedStamp="2026-05-11 15:47:12.479"
+                        lastUpdatedTxStamp="2026-05-11 15:47:06.543" productFeatureApplTypeId="STANDARD_FEATURE"
+                        productFeatureId="PF101" productId="MS002"/>
+
+    <ProductAssoc createdStamp="2026-05-28 19:24:49.876" createdTxStamp="2026-05-28 19:24:49.049"
+                  fromDate="2026-05-28 19:24:00.057" lastUpdatedStamp="2026-05-28 19:24:49.876"
+                  lastUpdatedTxStamp="2026-05-28 19:24:49.049" productAssocTypeId="PRODUCT_VARIANT"
+                  productId="MS001" productIdTo="MS-1"/>
+
+    <ProductAssoc createdStamp="2026-05-28 19:24:49.876" createdTxStamp="2026-05-28 19:24:49.049"
+                  fromDate="2026-05-28 19:24:00.057" lastUpdatedStamp="2026-05-28 19:24:49.876"
+                  lastUpdatedTxStamp="2026-05-28 19:24:49.049" productAssocTypeId="PRODUCT_VARIANT"
+                  productId="MS002" productIdTo="MS-1"/>
+
+    <!--    activity 6 and 7  - Inventory Item and facility  -->
+
+    <InventoryItem accountingQuantityTotal="0.000000" availableToPromiseTotal="200.000000"
+                   createdStamp="2026-05-29 10:18:55.607" createdTxStamp="2026-05-29 10:18:55.606"
+                   currencyUomId="USD" facilityId="10000" inventoryItemId="INV100"
+                   inventoryItemTypeId="NON_SERIAL_INV_ITEM" lastUpdatedStamp="2026-05-29 10:18:55.651"
+                   lastUpdatedTxStamp="2026-05-29 10:18:55.606" locationSeqId="TLTLTLUL01" ownerPartyId="10000"
+                   productId="MS001" quantityOnHandTotal="200.000000" unitCost="2.100000"/>
+
+    <Facility createdStamp="2026-05-28 19:03:23.464" createdTxStamp="2026-05-28 19:03:23.346"
+              defaultInventoryItemTypeId="NON_SERIAL_INV_ITEM" facilityId="PFK_FRONT_STORE" facilityName="PKT_STORE"
+              facilitySizeUomId="AREA_cm2" facilityTypeId="RETAIL_STORE" lastUpdatedStamp="2026-05-28 19:03:23.464"
+              lastUpdatedTxStamp="2026-05-28 19:03:23.346" ownerPartyId="10000"/>
+
+    <ProductStoreCatalog createdStamp="2026-05-29 10:25:47.73" createdTxStamp="2026-05-29 10:25:47.729"
+                         fromDate="2026-05-29 00:00:00.0" lastUpdatedStamp="2026-05-29 10:25:47.73"
+                         lastUpdatedTxStamp="2026-05-29 10:25:47.729" prodCatalogId="SC100" productStoreId="10000"/>
+
+    <ProductStore addToCartRemoveIncompat="Y" addToCartReplaceUpsell="Y" allocateInventory="Y" allowComment="Y"
+                  allowPassword="Y" autoApproveInvoice="Y" autoApproveOrder="Y" autoApproveReviews="N"
+                  autoInvoiceDigitalItems="Y" autoOrderCcTryExp="Y" autoOrderCcTryLaterNsf="Y"
+                  autoOrderCcTryOtherCards="Y" autoSaveCart="N" balanceResOnOrderCreation="N" checkGcBalance="N"
+                  checkInventory="Y" companyName="Default Company" createdStamp="2026-05-13 10:14:32.186"
+                  createdTxStamp="2026-05-13 10:14:31.596" defaultCurrencyUomId="USD"
+                  digitalItemApprovedStatus="ITEM_APPROVED" enableAutoSuggestionList="N" enableDigProdUpload="N"
+                  explodeOrderItems="N" headerApprovedStatus="ORDER_APPROVED" headerCancelStatus="ORDER_CANCELLED"
+                  headerDeclinedStatus="ORDER_REJECTED" inventoryFacilityId="StoreWarehouse1" isDemoStore="N"
+                  isImmediatelyFulfilled="N" itemApprovedStatus="ITEM_APPROVED" itemCancelStatus="ITEM_CANCELLED"
+                  itemDeclinedStatus="ITEM_REJECTED" lastUpdatedStamp="2026-05-13 10:31:53.102"
+                  lastUpdatedTxStamp="2026-05-13 10:31:53.101" managedByLot="N" manualAuthIsCapture="N"
+                  oneInventoryFacility="Y" payToPartyId="P100" primaryStoreGroupId="_NA_" prodSearchExcludeVariants="Y"
+                  productStoreId="10000" prorateShipping="Y" prorateTaxes="Y" reqShipAddrForDigItems="Y"
+                  requireCustomerRole="N" requireInventory="N" requirementMethodEnumId="PRODRQM_STOCK"
+                  reserveInventory="Y" reserveOrderEnumId="INVRO_GUNIT_COST" retryFailedAuths="Y"
+                  selectPaymentTypePerItem="N" shipIfCaptureFails="Y" showCheckoutGiftOptions="Y"
+                  showOutOfStockProducts="Y" showPricesWithVatTax="N" showTaxIsExempt="Y" splitPayPrefPerShpGrp="Y"
+                  storeCreditAccountEnumId="FIN_ACCOUNT" storeName="Pratham" subtitle="Pratham"
+                  title="Open For Commerce" usePrimaryEmailUsername="N" viewCartOnAdd="N"/>
+
+    <ProductStorePaymentSetting createdStamp="2026-05-11 15:47:06.711" createdTxStamp="2026-05-11 15:47:06.543"
+                                lastUpdatedStamp="2026-05-11 15:47:06.711" lastUpdatedTxStamp="2026-05-11 15:47:06.543"
+                                paymentCustomMethodId="CC_AUTH_ALWAYSAPPROV" paymentMethodTypeId="CREDIT_CARD"
+                                paymentService="alwaysApproveCCProcessor" paymentServiceTypeEnumId="PRDS_PAY_AUTH"
+                                productStoreId="10000"/>
+    <ProductStorePaymentSetting createdStamp="2026-05-11 15:47:06.713" createdTxStamp="2026-05-11 15:47:06.543"
+                                lastUpdatedStamp="2026-05-11 15:47:06.713" lastUpdatedTxStamp="2026-05-11 15:47:06.543"
+                                paymentCustomMethodId="CC_CAPTURE_TEST" paymentMethodTypeId="CREDIT_CARD"
+                                paymentService="testCCCapture" paymentServiceTypeEnumId="PRDS_PAY_CAPTURE"
+                                productStoreId="10000"/>
+    <ProductStoreShipmentMeth allowUspsAddr="Y" createdStamp="2026-05-11 15:47:13.562"
+                              createdTxStamp="2026-05-11 15:47:06.543" includeNoChargeItems="N"
+                              lastUpdatedStamp="2026-05-11 15:47:13.562" lastUpdatedTxStamp="2026-05-11 15:47:06.543"
+                              partyId="USPS" productStoreId="10000" productStoreShipMethId="10000" requireUspsAddr="N"
+                              roleTypeId="CARRIER" sequenceNumber="5" serviceName="uspsRateInquire"
+                              shipmentMethodTypeId="STANDARD"/>
+
+    <SupplierProduct
+            productId="MS001"
+            partyId="DEMO_SUPPLIER"
+            availableFromDate="2026-05-29 00:00:00.000"
+            minimumOrderQuantity="1"
+            currencyUomId="USD"
+            lastPrice="500"/>
+
+    <SupplierProduct
+            productId="MS002"
+            partyId="DEMO_SUPPLIER"
+            availableFromDate="2026-05-29 00:00:00.000"
+            minimumOrderQuantity="1"
+            currencyUomId="USD"
+            lastPrice="500"/>
+
+
+</entity-engine-xml>
