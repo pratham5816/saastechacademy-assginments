@@ -89,9 +89,11 @@ GROUP BY CHANGE_REASON;
 ## Q12 Product Threshold Value
 
 ```sql
-SELECT Product_id,
-MINIMUM_STOCK AS THRESHOLD
-FROM product_facility
-WHERE FACILITY_ID = 'Austin';
+SELECT PF.Product_id,
+       PF.MINIMUM_STOCK AS THRESHOLD
+FROM product_facility PF
+JOIN facility F ON PF.facility_id = F.facility_id
+WHERE PF.FACILITY_ID = 'Austin'
+  AND F.FACILITY_TYPE_ID = 'CONFIGURATION';
 ```
 
