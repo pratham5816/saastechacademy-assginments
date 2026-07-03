@@ -34,6 +34,21 @@ FROM shopify_shop_product SSP
     AND GI.GOOD_IDENTIFICATION_TYPE_ID = 'ERP_ID';
 ```
 
+## Q7 Newly Created Sales Orders and Payment Methods
+
+```sql
+SELECT OH.order_id,
+       OH.grand_total AS TOTAL_AMOUNT,
+       OPP.PAYMENT_METHOD_TYPE_ID AS PAYMENT_METHOD,
+       OI.ID_VALUE AS SHOPIFY_ORDER_ID
+FROM order_header OH
+JOIN order_payment_preference OPP ON OH.order_id = OPP.order_id
+JOIN order_identification OI ON OH.order_id = OI.order_id
+AND OI.ORDER_IDENTIFICATION_TYPE_ID='SHOPIFY_ORD_ID'
+WHERE Oh.SALES_CHANNEL_ENUM_ID='WEB_SALES_CHANNEL'
+ORDER BY order_date DESC;
+```
+
 ## Q8 Payment Captured but Not Shipped
 
 ```sql
