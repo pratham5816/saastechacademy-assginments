@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This software is in the public domain under CC0 1.0 Universal plus a 
+This software is in the public domain under CC0 1.0 Universal plus a
 Grant of Patent License.
 
 To the extent possible under law, the author(s) have dedicated all
@@ -12,7 +12,8 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
 
     <!-- service & Related Services -->
     <service verb="get" noun="NewCustomers">
@@ -28,10 +29,9 @@ along with this software (see the LICENSE.md file). If not, see
             </script>
         </actions>
     </service>
-    <service verb="get" noun="MyOrders">
-        <in-parameters>
 
-        </in-parameters>
+
+    <service verb="get" noun="MyOrders">
         <out-parameters>
             <parameter name="order" type="List"/>
         </out-parameters>
@@ -42,6 +42,254 @@ along with this software (see the LICENSE.md file). If not, see
         </actions>
     </service>
 
+
+    <service verb="get" noun="Person">
+<!--        <in-parameters>-->
+<!--            &lt;!&ndash;                <parameter name="x" type="String"/>&ndash;&gt;-->
+<!--        </in-parameters>-->
+        <out-parameters>
+            <parameter name="temp" type="List"/>
+        </out-parameters>
+        <actions>
+            <script>
+                temp = ec.entity.find("Person").selectField("partyId").list();
+            </script>
+
+        </actions>
+    </service>
+
+    <service verb="post" noun="A1Q12ProductThreshold">
+        <in-parameters>
+            <parameter name="facility_id" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="res" type="int"/>
+        </out-parameters>
+        <actions>
+            <script>
+                res = ec.entity.find('ProductFacility').selectField("productId , minimumStock").list().toString();
+            </script>
+        </actions>
+    </service>
+
+    <!--    <service verb="process" noun="SqlString">-->
+
+    <!--    </service>-->
+
+
+    <service verb="get" noun="A1Q12ProductIds">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script>
+                res = ec.entity.find('ShopifyProductIdentification').condition('goodIdentificationTypeId' , 'ERP_ID')
+                .selectField('productId , shopifyProductId , idValue')
+                .list().toString();
+            </script>
+        </actions>
+    </service>
+
+    <service verb="get" noun="A3Q84AtpQohDiff">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               li = ec.entity.find("InventoryItem").selectField('productId,facilityId,quantityOnHandTotal,availableToPromiseTotal').list()
+
+               res = li.findAll{ it.quantityOnHandTotal != it.availableToPromiseTotal }
+
+            ]]></script>
+        </actions>
+    </service>
+
+
+<!--    <service verb="get" noun="Query">-->
+<!--        <out-parameters>-->
+<!--            <parameter name="res" type="list"/>-->
+<!--        </out-parameters>-->
+<!--        <actions>-->
+<!--            <entity-find entity-name="OrderHeader" list="res">-->
+<!--                -->
+<!--            </entity-find>-->
+<!--        </actions>-->
+<!--    </service>-->
+
+<!--    <service verb="get" noun="A2Q84AtpQohDiff">-->
+<!--        <out-parameters>-->
+<!--            <parameter name="res" type="list"/>-->
+<!--        </out-parameters>-->
+<!--        <actions>-->
+<!--            <script><![CDATA[-->
+<!--               li = ec.entity.find("InventoryItem").selectField('productId,facilityId,quantityOnHandTotal,availableToPromiseTotal').list()-->
+
+<!--               res = li.findAll{ it.quantityOnHandTotal != it.availableToPromiseTotal }-->
+<!--            ]]></script>-->
+<!--        </actions>-->
+<!--    </service>-->
+
+
+    <service verb="get" noun="A3Q5ReturnDetail">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               res = ec.entity.find('ReturnDetail').list();
+            ]]></script>
+        </actions>
+    </service>
+
+    <service verb="get" noun="A2Q86OrderSales">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               res = ec.entity.find('OrderTotalSales').list();
+            ]]></script>
+        </actions>
+    </service>
+
+    <service verb="get" noun="A3Q8WareHousePickers">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               res = ec.entity.find('FacilityPartyDetail').condition('roleTypeId' , 'WAREHOUSE_PICKER').list();
+            ]]></script>
+        </actions>
+    </service>
+
+    <service verb="get" noun="A2Q86OpenOrders">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               res = ec.entity.find('OpenOrders').condition('statusId' , 'in' , ["ORDER_HOLD","ORDER_CREATED","ORDER_APPROVED"]).list();
+            ]]></script>
+        </actions>
+    </service>
+
+    <service verb="get" noun="A1Q81LostDamageInventory">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="LostDamagedInventory" list="res">
+                <econdition field-name="reasonEnumId" operator="in"
+                            value="VAR_DAMAGED,VAR_STOLEN,REJ_RSN_DAMAGED"/>
+            </entity-find>
+            <!--            <script>-->
+            <!--                res = ec.entity.find('LostDamagedInventory').condition('reasonEnumId' , 'in',["VAR_DAMAGED","VAR_STOLEN","REJ_RSN_DAMAGED"]).list()-->
+            <!--            </script>-->
+        </actions>
+    </service>
+
+    <service verb="get" noun="A1Q11CancelledOrders">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+               res = ec.entity.find('CancelOrders').list();
+            ]]></script>
+            <!--            <entity-find entity-name="CancelOrders" list="res"/>-->
+        </actions>
+    </service>
+
+
+    <service verb="get" noun="GetEntityDefinition">
+        <in-parameters>
+            <parameter name="entityName" type="text"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="res"/>
+        </out-parameters>
+        <actions>
+            <script><![CDATA[
+                import
+                EntityDefinition res = ec.entity.getEntityDefinition(entityName);
+            ]]></script>
+            <!--            <entity-find entity-name="CancelOrders" list="res"/>-->
+        </actions>
+    </service>
+
+
+    <service verb="get" noun="A1Q01NewCustomers">
+        <out-parameters>
+            <parameter name="resp" type="list"/>
+        </out-parameters>
+        <actions>
+            <script>
+                import java.sql.Timestamp
+                import org.moqui.entity.EntityCondition
+
+                resp = ec.entity.find('PartySummary').condition('roleTypeId' , 'CUSTOMER').condition("createdDate",
+                EntityCondition.GREATER_THAN_EQUAL_TO,
+                Timestamp.valueOf("2026-06-01 00:00:00")).condition("createdDate", EntityCondition.LESS_THAN_EQUAL_TO ,
+                Timestamp.valueOf("2026-07-01 00:00:00"))
+                .selectField("partyId , firstName , createdDate , roleTypeId , contactNumber , infoString")
+                .limit(20).list().toString();
+
+                <!--                ec.logger.warn("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX      ${temp}");-->
+
+                <!--                resp = ec.entity.find('PartySummary').selectField('partyId').list().collect{it : it.partyId}-->
+
+                <!--                def june_start = Timestamp.valueOf("2023-06-01 00:00:00");-->
+                <!--                def june_end = Timestamp.valueOf("2023-07-01 00:00:00");-->
+                <!--                temp = ec.entity.find("PartySummary").selectField("firstName").list();-->
+
+
+                <!--&lt;!&ndash;                 .condition("createdDate" , EntityCondition.ComparisonOperator.GREATER_THAN_EQUAL_TO, june_start)&ndash;&gt;-->
+            </script>
+
+        </actions>
+    </service>
+
+    <service verb="get" noun="A1Q8PaymentCaptured">
+        <out-parameters>
+            <parameter name="res" type="list"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="PaymentCaptured" list="res">
+                <econditions combine="and">
+                        <econdition field-name="paymentStatusId" value="PAYMENT_SETTLED"/>
+                        <econditions combine="or">
+                            <econdition field-name="shipmentStatusId" value="SHIPMENT_SHIPPED"/>
+                            <econdition field-name="shipmentStatusId" operator="is-null"/>
+                        </econditions>
+                </econditions>
+            </entity-find>
+<!--            <script>-->
+<!--                import org.moqui.entity.EntityCondition-->
+
+<!--&lt;!&ndash;                def con = EntityCondition.makeCondition([&ndash;&gt;-->
+<!--&lt;!&ndash;                            EntityCondition.makeCondition('paymentStatusId' , EntityCondition.ComparisonOperator.EQUALS , "PAYMENT_SETTLED"),&ndash;&gt;-->
+<!--&lt;!&ndash;                            EntityCondition.makeCondition([&ndash;&gt;-->
+<!--&lt;!&ndash;                                EntityCondition.makeCondition('shipmentStatusId' , EntityCondition.NOT_EQUAL , 'SHIPMENT_SHIPPED') ,&ndash;&gt;-->
+<!--&lt;!&ndash;                                EntityCondition.makeCondition('shipmentStatusId' , EntityCondition.EQUALS , null)&ndash;&gt;-->
+<!--&lt;!&ndash;                                ] , EntityCondition.OR)&ndash;&gt;-->
+
+<!--&lt;!&ndash;                           ] , EntityCondition.AND)&ndash;&gt;-->
+
+<!--                def cf = ec.entity.conditionFactory-->
+
+<!--                def con = cf.makeCondition([-->
+<!--                cf.makeCondition("paymentStatusId", cf.EQUALS, "PAYMENT_SETTLED"),-->
+<!--                cf.makeCondition([-->
+<!--                cf.makeCondition("shipmentStatusId", cf.NOT_EQUAL, "SHIPMENT_SHIPPED"),-->
+<!--                cf.makeCondition("shipmentStatusId",  cf.IS_NULL)-->
+<!--                ], cf.OR)-->
+<!--                ], cf.AND)-->
+
+<!--                res = ec.entity.find('PaymentCaptured').condition(con).list();-->
+<!--            </script>-->
+        </actions>
+    </service>
 
 
 </services>
