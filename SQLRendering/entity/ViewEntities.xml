@@ -14,6 +14,171 @@ along with this software (see the LICENSE.md file). If not, see
 -->
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
 
-    <!-- service & Related View Entities -->
+
+    <view-entity entity-name="PartySummary" package="org.apache.ofbiz.party.party.Party">
+
+        <member-entity entity-alias="P" entity-name="org.apache.ofbiz.party.party.Party"/>
+        <member-entity entity-alias="PR" entity-name="org.apache.ofbiz.party.party.PartyRole" join-from-alias="P">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="PER" entity-name="org.apache.ofbiz.party.party.Person" join-from-alias="P">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="PCM" entity-name="org.apache.ofbiz.party.contact.PartyContactMech" join-from-alias="P">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="CM" entity-name="org.apache.ofbiz.party.contact.ContactMech" join-from-alias="PCM">
+            <key-map field-name="contactMechId"/>
+        </member-entity>
+        <member-entity entity-alias="PCM_PHONE" entity-name="org.apache.ofbiz.party.contact.PartyContactMech" join-from-alias="P">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="TN" entity-name="org.apache.ofbiz.party.contact.TelecomNumber" join-from-alias="PCM_PHONE">
+            <key-map field-name="contactMechId"/>
+        </member-entity>
+
+        <alias-all entity-alias="P"/>
+
+        <alias entity-alias="PER" name="firstName"/>
+        <alias entity-alias="PER" name="lastName"/>
+        <alias entity-alias="PR" name="roleTypeId"/>
+        <alias entity-alias="CM" name="infoString"/>
+        <alias entity-alias="CM" name="contactMechTypeId"/>
+        <alias entity-alias="P" name="createdDate"/>
+        <alias entity-alias="TN" name="contactNumber"/>
+
+    </view-entity>
+
+
+    <view-entity entity-name="OrderTotalSales" package="org.apache.ofbiz.order.order">
+        <member-entity entity-alias="OH" entity-name="OrderHeader"/>
+
+        <alias entity-alias="OH" name="salesChannelEnumId"/>
+        <alias entity-alias="OH" name="orderCount" field="orderId" function="count"/>
+        <alias entity-alias="OH" name="grandTotal" field="grandTotal" function="sum"/>
+
+    </view-entity>
+
+    <view-entity entity-name="CancelOrders" package="org.apache.ofbiz.order.order">
+        <member-entity entity-alias="OS" entity-name="OrderStatus"/>
+        <alias entity-alias="OS" name="changeReason"/>
+        <alias entity-alias="OS" name="totalOrders" field="orderId" function="count"/>
+
+        <entity-condition>
+            <econdition entity-alias="OS" field-name="statusId" value="ORDER_CANCELLED"/>
+            <econdition entity-alias="OS" field-name="statusDatetime" operator="greater-equals" value="2026-05-01"/>
+            <econdition entity-alias="OS" field-name="statusDatetime" operator="less-equals" value="2026-06-01"/>
+        </entity-condition>
+
+    </view-entity>
+
+    <view-entity entity-name="OpenOrders" package="org.apache.ofbiz.order.order">
+        <member-entity entity-alias="OS" entity-name="org.apache.ofbiz.order.order.OrderStatus"/>
+
+        <member-entity entity-alias="OISG" entity-name="org.apache.ofbiz.order.order.OrderItemShipGroup" join-from-alias="OS">
+            <key-map field-name="orderId"/>
+        </member-entity>
+
+        <member-entity entity-alias="F" entity-name="org.apache.ofbiz.product.facility.Facility" join-from-alias="OISG">
+            <key-map field-name="facilityId"/>
+        </member-entity>
+
+
+        <alias entity-alias="OS" name="orderId"/>
+        <alias entity-alias="OS" name="statusId"/>
+        <alias entity-alias="OISG" name="facilityId"/>
+        <alias entity-alias="F" name="facilityName"/>
+        <alias entity-alias="F" name="facilityTypeId"/>
+    </view-entity>
+
+
+    <view-entity entity-name="LostDamagedInventory" package="org.apache.ofbiz.product.inventory">
+        <member-entity entity-alias="II" entity-name="org.apache.ofbiz.product.inventory.InventoryItem"/>
+        <member-entity entity-alias="IIV" entity-name="org.apache.ofbiz.product.inventory.InventoryItemVariance" join-from-alias="II">
+            <key-map field-name="inventoryItemId"/>
+        </member-entity>
+
+        <alias entity-alias="II" name="inventoryItemId"/>
+        <alias entity-alias="II" name="productId"/>
+        <alias entity-alias="II" name="facilityId"/>
+        <alias entity-alias="IIV" name="reasonEnumId"/>
+        <alias entity-alias="IIV" name="quantityOnHandVar"/>
+
+        <!--        <entity-condition>-->
+        <!--            <econdition entity-alias="IIV" field-name="reasonEnumId"  value="VAR_DAMAGED"/>-->
+        <!--&lt;!&ndash;            <econdition entity-alias="IIV" field-name="reasonEnumId"  value="VAR_STOLEN"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;            <econdition entity-alias="IIV" field-name="reasonEnumId"  value="REJ_RSN_DAMAGED"/>&ndash;&gt;-->
+        <!--        </entity-condition>-->
+    </view-entity>
+
+    <view-entity entity-name="PaymentCaptured" package="org.apache.ofbiz.order.order">
+
+        <member-entity entity-alias="OH" entity-name="org.apache.ofbiz.order.order.OrderHeader"/>
+        <member-entity entity-alias="OPP" entity-name="org.apache.ofbiz.order.order.OrderPaymentPreference" join-from-alias="OH" >
+            <key-map field-name="orderId"/>
+        </member-entity>
+        <member-entity entity-alias="S" entity-name="org.apache.ofbiz.shipment.shipment.Shipment" join-from-alias="OPP" join-optional="true">
+            <key-map field-name="orderId" related="primaryOrderId"/>
+        </member-entity>
+        <alias entity-alias="OH" field="orderId"  name="orderId"/>
+        <alias entity-alias="OH" field="statusId" name="orderStatusId"/>
+        <alias entity-alias="OPP" field="statusId" name="paymentStatusId"/>
+        <alias entity-alias="S" field="statusId" name="shipmentStatusId"/>
+
+    </view-entity>
+
+    <view-entity entity-name="ReturnDetail" package="org.apache.ofbiz.order.return">
+
+        <member-entity entity-alias="RH" entity-name="org.apache.ofbiz.order.return.ReturnHeader"/>
+
+        <member-entity entity-alias="RI" entity-name="org.apache.ofbiz.order.return.ReturnItem" join-from-alias="RH">
+            <key-map field-name="returnId"/>
+        </member-entity>
+        <member-entity entity-alias="OH" entity-name="org.apache.ofbiz.order.order.OrderHeader" join-from-alias="RI">
+            <key-map field-name="orderId"/>
+        </member-entity>
+        <member-entity entity-alias="OI" entity-name="org.apache.ofbiz.order.order.OrderItem" join-from-alias="RI">
+            <key-map field-name="orderId"/>
+            <key-map field-name="orderItemSeqId"/>
+        </member-entity>
+
+        <alias entity-alias="RH" name="returnId"/>
+        <alias entity-alias="RH" name="entryDate"/>
+        <alias entity-alias="RH" name="returnHeaderTypeId"/>
+        <alias entity-alias="RI" name="returnPrice"/>
+        <alias entity-alias="OI" name="comments"/>
+        <alias entity-alias="OI" name="orderId"/>
+        <alias entity-alias="OH" name="orderDate"/>
+        <alias entity-alias="RH" name="returnDate"/>
+        <alias entity-alias="OH" name="productStoreId"/>
+    </view-entity>
+
+    <view-entity entity-name="FacilityPartyDetail" package="org.apache.ofbiz.product.facility">
+        <member-entity entity-alias="PR" entity-name="org.apache.ofbiz.party.party.PartyRole"/>
+        <member-entity entity-alias="P" entity-name="org.apache.ofbiz.party.party.Person" join-from-alias="PR">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        <member-entity entity-alias="FP" entity-name="org.apache.ofbiz.product.facility.FacilityParty" join-from-alias="P">
+            <key-map field-name="partyId"/>
+        </member-entity>
+        
+        <alias entity-alias="PR" name="partyId"/>
+        <alias entity-alias="P" name="firstName"/>
+        <alias entity-alias="P" name="lastName"/>
+        <alias entity-alias="PR" name="roleTypeId"/>
+        <alias entity-alias="FP" name="facilityId"/>
+    </view-entity>
+
+
+    <view-entity entity-name="ShopifyProductIdentification" package="co.hotwax.shopify">
+        <member-entity entity-alias="SSP" entity-name="co.hotwax.shopify.ShopifyShopProduct"/>
+        <member-entity entity-alias="GI" entity-name="org.apache.ofbiz.product.product.GoodIdentification" join-from-alias="SSP" join-optional="true">
+            <key-map field-name="productId" />
+        </member-entity>
+
+        <alias-all entity-alias="SSP"/>
+        <alias-all entity-alias="GI"/>
+    </view-entity>
+
 
 </entities>
