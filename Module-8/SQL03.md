@@ -7,19 +7,23 @@
 
 ```sql
 SELECT OH.ORDER_ID,
-OI.ORDER_ITEM_SEQ_ID,
-OI.PRODUCT_ID,
-P.product_type_id,
-OH.SALES_CHANNEL_ENUM_ID,
-OH.ORDER_DATE,
-OH.ENTRY_DATE,
-OH.STATUS_ID,
-OH.ORDER_TYPE_ID,
-OH.PRODUCT_STORE_ID
+       OI.ORDER_ITEM_SEQ_ID,
+       OI.PRODUCT_ID,
+       P.product_type_id,
+       OH.SALES_CHANNEL_ENUM_ID,
+       OH.ORDER_DATE,
+       OH.ENTRY_DATE,
+       OH.STATUS_ID,
+       OH.ORDER_TYPE_ID,
+       OH.PRODUCT_STORE_ID
 FROM order_header OH
 JOIN ORDER_ITEM OI ON OH.order_id = OI.order_id
-JOIN product P ON oi.PRODUCT_ID = P.product_id 
-WHERE OH.ORDER_TYPE_ID = 'SALES_ORDER';
+JOIN product P ON oi.PRODUCT_ID = P.product_id
+WHERE OH.ORDER_TYPE_ID = 'SALES_ORDER'
+  AND OH.status_id='ORDER_COMPLETED'
+  AND P.product_type_id IN ('FINISHED_GOOD',
+                            'MARKETING_PKG',
+                            'MARKETING_PKG_PICK');
 ```
 
 ## Q5 Detailed Return Information
