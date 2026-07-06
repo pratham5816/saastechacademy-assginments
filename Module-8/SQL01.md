@@ -39,6 +39,21 @@ WHERE PT.IS_PHYSICAL='Y'
        OR CURRENT_TIMESTAMP <= PCM.THRU_DATE);
 ```
 
+## Q3 Products Missing NetSuite ID
+
+```sql
+SELECT P.product_id,
+       P.internal_name,
+       P.PRODUCT_TYPE_ID,
+       GI.ID_VALUE
+FROM product P
+LEFT JOIN good_identification GI ON P.PRODUCT_ID = GI.PRODUCT_ID
+AND GI.GOOD_IDENTIFICATION_TYPE_ID='ERP_ID'
+WHERE GI.PRODUCT_ID IS NULL
+  AND P.PRODUCT_TYPE_ID != 'SERVICE';
+```
+
+
 ## Q4 Product IDs Across Systems
 
 ```sql
