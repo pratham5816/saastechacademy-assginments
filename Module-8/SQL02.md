@@ -82,7 +82,7 @@ JOIN INVENTORY_ITem_detail IID
 WHERE II.INVENTORY_ITEM_ID = IID.inventory_item_id
   AND IID.REASON_ENUM_ID IN ("VAR_DAMAGED",
                              "VAR_STOLEN",
-                             "REJ_RSN_DAMAGED");
+                             "VAR_LOST");
 ```
 
 ## Q8.2 Low Stock or Out of Stock Items Report
