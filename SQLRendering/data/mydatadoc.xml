@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml type="ext-upgrade-v1.0.1">
+    <dataDocuments dataDocumentId="Demo" indexName="xyz" documentName="Demo"
+                   primaryEntityName="org.apache.ofbiz.product.product.Product" documentTitle="DemoTitle">
+        <fields fieldSeqId="01" fieldPath="productId"/>
+        <fields fieldSeqId="02" fieldPath="internalName"/>
+        <fields fieldSeqId="03" fieldPath="productName"/>
+    </dataDocuments>
+
+    <moqui.entity.feed.DataFeed dataFeedId="OmsProduct" dataFeedTypeEnumId="DTFDTP_RT_PUSH" indexOnStartEmpty="Y"
+                                feedName="OMS Product Feed" feedReceiveServiceName="co.hotwax.oms.search.SearchServices.index#ProductSolr"
+                                feedDeleteServiceName="org.moqui.search.SearchServices.delete#DataDocument">
+        <documents dataDocumentId="OmsProduct"/>
+    </moqui.entity.feed.DataFeed>
+
+    <!-- Remove jobTypeEnumId from following jobs -->
+    <moqui.service.job.ServiceJob jobName="poll_SystemMessageFileSftp_NewProductsFeed" jobTypeEnumId=""/>
+    <moqui.service.job.ServiceJob jobName="poll_SystemMessageFileSftp_ProductUpdatesFeed" jobTypeEnumId=""/>
+</entity-facade-xml>
